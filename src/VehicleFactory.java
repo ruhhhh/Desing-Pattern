@@ -1,5 +1,4 @@
 public class VehicleFactory implements IVehicleFactory{
-
     public IVehicle ProduceVehicle(VehicleBrand brand)
     {
         IVehicle vehicle = null;
@@ -17,5 +16,4 @@ public class VehicleFactory implements IVehicleFactory{
         }
         return vehicle;
     }
-
 }

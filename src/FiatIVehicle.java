@@ -1,20 +1,29 @@
 public class FiatIVehicle implements IVehicle {
-
     @Override
     public String engine() {
-        System.out.println("Fiat Marka araçlar 1.6 litre dizel motor hacmine sahip olurlar.");
-
-        return null;
+        return "Fiat Marka araçlar 1.6 litre dizel motor hacmine sahip olurlar.";
     }
-
     @Override
     public String vehicleType() {
-        System.out.println("Hatchback tipinde araçtır.");
-        return null;
+        return "Hatchback tipinde araçtır.";
     }
-
     @Override
     public String brand() {
         return "Fiat";
+    }
+
+    @Override
+    public String miniOnarim() {
+        return null;
+    }
+
+    @Override
+    public String yedekArac() {
+        return null;
+    }
+
+    @Override
+    public String yetkiliServis() {
+        return null;
     }
 }

@@ -1,28 +1,92 @@
+import java.util.Scanner;
 public class BuilderTest {
     public static void main(String[] args) {
 
         VehicleFactory vehicleFactory = new VehicleFactory();
 
-        IVehicle vehicleCar = vehicleFactory.ProduceVehicle(VehicleBrand.BMW);
+        System.out.println("BMW[1], MERCEDES[2], FIAT[3]");
+        System.out.print("Lütfen araç markanızı seçiniz: ");
+        Scanner read = new Scanner(System.in);
+        int selectBrand = read.nextInt();
+        String brandName = "";
 
-        User user1 = new User.UserBuilder(vehicleCar.brand(), vehicleCar.vehicleType(), vehicleCar.engine()).Kasko(vehicleCar.brand(), vehicleCar.vehicleType(), vehicleCar.engine()).build();
-        System.out.println(user1.getBrand() + " " + user1.getType() + " " + user1.getEngine());
-        System.out.println("-----\nKasko Hesaplaması gerçekleştiriliyor.");
-        System.out.println(user1.getPrice());
+        switch (selectBrand)
+        {
+            case 1: brandName = "BMW"; break;
+            case 2: brandName = "MERCEDES"; break;
+            case 3: brandName = "FIAT"; break;
+            default: System.out.println("Geçersiz bir Seçim yaptınız."); break;
+        }
+        IVehicle vehicleCar = vehicleFactory.ProduceVehicle(VehicleBrand.valueOf(brandName));
+        System.out.println("En Düşük Kasko[1], Mini Onarım[2], Yedek Araç[3], Yetkili Servis[4], En Full Kasko[5]");
+        System.out.print("Kaskonuzda ekstra istediğiniz özelliği ekleyin: ");
+        int kaskoRead = read.nextInt();
+        int sonuc = 0;
 
-        /*String umut = "100";
-        User user = new User.UserBuilder("Koray", "Peker")
-                .email(umut).build();
-        User user1 = new User.UserBuilder("Koray", "Peker")
-                .email(umut+"2").build();
+        switch (kaskoRead)
+        {
+            case 1: sonuc = 1; break;
+            case 2: sonuc = 2; break;
+            case 3: sonuc = 3; break;
+            case 4: sonuc = 4; break;
+            default: sonuc = 5; break;
+        }
 
-        System.out.println(user.getEmail());
-        System.out.println(user1.getEmail());
+        if(sonuc == 1)
+        {
+            System.out.println("-----");
+            User user1 = new User.UserBuilder(vehicleCar.brand(), vehicleCar.vehicleType(), vehicleCar.engine(),
+                    vehicleCar.miniOnarim(), vehicleCar.yedekArac(), vehicleCar.yetkiliServis()).Kasko(vehicleCar.brand(),
+                    vehicleCar.vehicleType()).build();
+            System.out.println(user1.getBrand() + " " + user1.getType() + " " + user1.getEngine());
+            System.out.println("-----\nYukarıda verilen özelliklere göre kasko Hesaplaması gerçekleştiriliyor.");
+            System.out.println("Fiyat teklifiniz " + user1.getPrice() + " TL");
+        }
 
-         */
+        else if(sonuc == 2)
+        {
+            System.out.println("-----");
+            User user1 = new User.UserBuilder(vehicleCar.brand(), vehicleCar.vehicleType(), vehicleCar.engine(),
+                    vehicleCar.miniOnarim(), vehicleCar.yedekArac(), vehicleCar.yetkiliServis() ).Kasko(vehicleCar.brand(),
+                    vehicleCar.vehicleType(), vehicleCar.engine(), vehicleCar.miniOnarim()).build();
+            System.out.println(user1.getBrand() + " " + user1.getType() + " " + user1.getEngine());
+            System.out.println("-----\nYukarıda verilen özelliklere göre kasko Hesaplaması gerçekleştiriliyor.");
+            System.out.println("Fiyat teklifiniz " + user1.getPrice() + " TL");
+        }
 
-        //var vehicleFactory = new VehicleFactory();
-
-
+        else if(sonuc == 3)
+        {
+            System.out.println("-----");
+            User user1 = new User.UserBuilder(vehicleCar.brand(), vehicleCar.vehicleType(), vehicleCar.engine(),
+                    vehicleCar.miniOnarim(), vehicleCar.yedekArac(), vehicleCar.yetkiliServis() ).Kasko(vehicleCar.brand(),
+                    vehicleCar.vehicleType(), vehicleCar.engine(), vehicleCar.yedekArac()).build();
+            System.out.println(user1.getBrand() + " " + user1.getType() + " " + user1.getEngine());
+            System.out.println("-----\nYukarıda verilen özelliklere göre kasko Hesaplaması gerçekleştiriliyor.");
+            System.out.println("Fiyat teklifiniz " + user1.getPrice() + " TL");
+        }
+        else if(sonuc == 4)
+        {
+            System.out.println("-----");
+            User user1 = new User.UserBuilder(vehicleCar.brand(), vehicleCar.vehicleType(), vehicleCar.engine(),
+                    vehicleCar.miniOnarim(), vehicleCar.yedekArac(), vehicleCar.yetkiliServis() ).Kasko(vehicleCar.brand(),
+                    vehicleCar.vehicleType(), vehicleCar.engine(), vehicleCar.yetkiliServis()).build();
+            System.out.println(user1.getBrand() + " " + user1.getType() + " " + user1.getEngine());
+            System.out.println("-----\nYukarıda verilen özelliklere göre kasko Hesaplaması gerçekleştiriliyor.");
+            System.out.println("Fiyat teklifiniz " + user1.getPrice() + " TL");
+        }
+        else if(sonuc == 5)
+        {
+            System.out.println("-----");
+            User user1 = new User.UserBuilder(vehicleCar.brand(), vehicleCar.vehicleType(), vehicleCar.engine(),
+                    vehicleCar.miniOnarim(), vehicleCar.yedekArac(), vehicleCar.yetkiliServis() ).Kasko(vehicleCar.brand(),
+                    vehicleCar.vehicleType(), vehicleCar.engine(), vehicleCar.miniOnarim(),vehicleCar.yetkiliServis(),
+                    vehicleCar.yedekArac()).build();
+            System.out.println(user1.getBrand() + " " + user1.getType() + " " + user1.getEngine());
+            System.out.println("-----\nYukarıda verilen özelliklere göre kasko Hesaplaması gerçekleştiriliyor.");
+            System.out.println("Fiyat teklifiniz " + user1.getPrice() + " TL");
+        }
+        else {
+            System.out.println("Maalesef geçersiz bir sayı girdiniz.");
+        }
     }
 }
