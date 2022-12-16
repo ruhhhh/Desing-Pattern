@@ -1,4 +1,8 @@
-public class User {
+/**
+ * Builder pattern i ile oluşturulan sınıfır. Tüm değişkenler private olarak tanımlanıp sınıf içerisinde kullanılmaktadır.
+ */
+
+public class Builder {
     private String brand; // required
     private String type; // required
     private String engine; // optional
@@ -8,7 +12,10 @@ public class User {
     private String yedekArac;
     private String yetkiliServis;
 
-    User(UserBuilder builder) {
+    /**
+     * Araç oluşturmak istendiğinde tüm değerleri alan ve döndüren fonksiyondur.
+     * */
+    Builder(UserBuilder builder) {
         this.brand = builder.brand;
         this.type = builder.type;
         this.engine = builder.engine;
@@ -42,6 +49,9 @@ public class User {
         return yedekArac;
     }
 
+    /**
+     * Kullanıcının isteğine göre seçilen özellik ve markalar için hesap yapan sınıftır.
+     * */
     public static class UserBuilder {
 
         private String brand;
@@ -52,7 +62,6 @@ public class User {
         private String yedekArac;
         private String yetkiliServis;
 
-
         public UserBuilder(String brand, String type, String engine, String miniOnarim, String yedekArac, String yetkiliServis) {
             this.brand = brand;
             this.type = type;
@@ -62,28 +71,8 @@ public class User {
             this.yetkiliServis = yetkiliServis;
         }
 
-        public UserBuilder Kasko(String brand, String type, String engine) {
-            if(brand.equalsIgnoreCase("BMW")){
-                this.price = 1000;
-            } else if(brand.equalsIgnoreCase("MERCEDES")){
-                this.price = 3000;
-            } else if (brand.equalsIgnoreCase("FIAT")) {
-                this.price = 500;
-            }
-            return this;
-        }
-        public UserBuilder Kasko(String brand, String type, String miniOnarim, String yedekArac, String yetkiliServis) {
-            if(brand.equalsIgnoreCase("BMW")){
-                this.price = 100;
-            } else if(brand.equalsIgnoreCase("MERCEDES")){
-                this.price = 300;
-            } else if (brand.equalsIgnoreCase("FIAT")) {
-                this.price = 50;
-            }
-            return this;
-        }
-        public User build() {
-            return new User(this);
+        public Builder build() {
+            return new Builder(this);
         }
 
         //En boş kasko hesabı

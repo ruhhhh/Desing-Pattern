@@ -1,3 +1,8 @@
+/**
+ * Kullanıcıdan alından seçimlere göre ENUM sınıfına giderek yeni bir araç sınıfı oluşturur.
+ * Araç sınıfının ardından kullanıcıdan kasko özelliklerine göre kasko fiyat hesabı yaparak ekrana bastırır.
+ * */
+
 import java.util.Scanner;
 public class BuilderTest {
     public static void main(String[] args) {
@@ -35,7 +40,7 @@ public class BuilderTest {
         if(sonuc == 1)
         {
             System.out.println("-----");
-            User user1 = new User.UserBuilder(vehicleCar.brand(), vehicleCar.vehicleType(), vehicleCar.engine(),
+            Builder user1 = new Builder.UserBuilder(vehicleCar.brand(), vehicleCar.vehicleType(), vehicleCar.engine(),
                     vehicleCar.miniOnarim(), vehicleCar.yedekArac(), vehicleCar.yetkiliServis()).Kasko(vehicleCar.brand(),
                     vehicleCar.vehicleType()).build();
             System.out.println(user1.getBrand() + " " + user1.getType() + " " + user1.getEngine());
@@ -46,7 +51,7 @@ public class BuilderTest {
         else if(sonuc == 2)
         {
             System.out.println("-----");
-            User user1 = new User.UserBuilder(vehicleCar.brand(), vehicleCar.vehicleType(), vehicleCar.engine(),
+            Builder user1 = new Builder.UserBuilder(vehicleCar.brand(), vehicleCar.vehicleType(), vehicleCar.engine(),
                     vehicleCar.miniOnarim(), vehicleCar.yedekArac(), vehicleCar.yetkiliServis() ).Kasko(vehicleCar.brand(),
                     vehicleCar.vehicleType(), vehicleCar.engine(), vehicleCar.miniOnarim()).build();
             System.out.println(user1.getBrand() + " " + user1.getType() + " " + user1.getEngine());
@@ -57,7 +62,7 @@ public class BuilderTest {
         else if(sonuc == 3)
         {
             System.out.println("-----");
-            User user1 = new User.UserBuilder(vehicleCar.brand(), vehicleCar.vehicleType(), vehicleCar.engine(),
+            Builder user1 = new Builder.UserBuilder(vehicleCar.brand(), vehicleCar.vehicleType(), vehicleCar.engine(),
                     vehicleCar.miniOnarim(), vehicleCar.yedekArac(), vehicleCar.yetkiliServis() ).Kasko(vehicleCar.brand(),
                     vehicleCar.vehicleType(), vehicleCar.engine(), vehicleCar.yedekArac()).build();
             System.out.println(user1.getBrand() + " " + user1.getType() + " " + user1.getEngine());
@@ -67,7 +72,7 @@ public class BuilderTest {
         else if(sonuc == 4)
         {
             System.out.println("-----");
-            User user1 = new User.UserBuilder(vehicleCar.brand(), vehicleCar.vehicleType(), vehicleCar.engine(),
+            Builder user1 = new Builder.UserBuilder(vehicleCar.brand(), vehicleCar.vehicleType(), vehicleCar.engine(),
                     vehicleCar.miniOnarim(), vehicleCar.yedekArac(), vehicleCar.yetkiliServis() ).Kasko(vehicleCar.brand(),
                     vehicleCar.vehicleType(), vehicleCar.engine(), vehicleCar.yetkiliServis()).build();
             System.out.println(user1.getBrand() + " " + user1.getType() + " " + user1.getEngine());
@@ -77,7 +82,7 @@ public class BuilderTest {
         else if(sonuc == 5)
         {
             System.out.println("-----");
-            User user1 = new User.UserBuilder(vehicleCar.brand(), vehicleCar.vehicleType(), vehicleCar.engine(),
+            Builder user1 = new Builder.UserBuilder(vehicleCar.brand(), vehicleCar.vehicleType(), vehicleCar.engine(),
                     vehicleCar.miniOnarim(), vehicleCar.yedekArac(), vehicleCar.yetkiliServis() ).Kasko(vehicleCar.brand(),
                     vehicleCar.vehicleType(), vehicleCar.engine(), vehicleCar.miniOnarim(),vehicleCar.yetkiliServis(),
                     vehicleCar.yedekArac()).build();

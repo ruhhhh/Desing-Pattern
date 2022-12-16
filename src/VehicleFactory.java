@@ -1,3 +1,6 @@
+/**
+ * Factory pattern ile oluşturulan sınıfın implemet edildiği ve marka ismine göre yeni aracın o özelliklere sahip olmasını sağlayan sınıftır.
+ * */
 public class VehicleFactory implements IVehicleFactory{
     public IVehicle ProduceVehicle(VehicleBrand brand)
     {
